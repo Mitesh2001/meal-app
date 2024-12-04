@@ -5,15 +5,15 @@ import CategoryGridTile from '../components/CategoryGridTile';
 
 const Categories = ({ navigation }) => {
 
-    const onPress = () => {
-        navigation.navigate("mealsOverview");
+    const onPress = (categoryId) => {
+        navigation.navigate("mealsOverview", { categoryId });
     }
 
     return (
         <FlatList
             data={CATEGORIES}
-            renderItem={({ index, item: { color, title } }) => (
-                <CategoryGridTile key={index} {...{ color, title, onPress }} />
+            renderItem={({ index, item: { id, color, title, } }) => (
+                <CategoryGridTile key={index} {...{ id, color, title, onPress }} />
             )}
             numColumns={2}
         />
